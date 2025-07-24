@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="my-5">These are the projects on hand:</h1>
+
+        <div class="row row-cols3 g-2">
+            {% for project in projects %}
+            <div class="col">
+                <div class="p-3 border">
+                    <a href="{% url 'projects.detail' pk=project.id %}" class="text-dark text-decoration-non"><h3>{{project.title}}</h3>
+                    </a>
+                    {{project.text|truncatechars:10}}
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        
+{% endblock %}
